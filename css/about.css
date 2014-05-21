@@ -51,7 +51,6 @@
     font-size:12pt;
     color:Silver;
     text-align:left;
-    background-color:blue;
     }
 .about_commit
 {
@@ -62,7 +61,6 @@
 {
     width:100%;
     font-size:12pt;
-    background-color:Silver;
     }
 #disqus_thread iframe
 {
