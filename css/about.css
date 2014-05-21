@@ -62,4 +62,9 @@
 {
     width:100%;
     font-size:12pt;
+    background-color:Silver;
+    }
+#disqus_thread iframe
+{
+    width:100%;
     }
