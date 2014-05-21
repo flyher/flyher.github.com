@@ -55,5 +55,10 @@
     }
 .about_commit
 {
+    margin-left:100px;
     float:left;
+    }
+#disqus_thread
+{
+    width:100%;
     }
