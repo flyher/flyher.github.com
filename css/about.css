@@ -47,7 +47,7 @@
 .about_evaluation
 {
     width:1200px;
-    height:200px;
+    height:260px;
     font-size:12pt;
     color:Silver;
     text-align:left;
@@ -58,6 +58,7 @@
     width:1200px;
     margin-left:100px;
     margin-top:10px;
+    font-size:10pt;
     float:left;
     }
 .disqus_thread
