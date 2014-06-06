@@ -10,7 +10,8 @@
 }
 .about_head
 {
-    
+    font-size:14pt;
+    font-weight:bolder;
     }
 .about_title
 {
@@ -48,8 +49,8 @@
 {
     width:1200px;
     height:260px;
-    font-size:12pt;
-    color:Silver;
+    font-size:11pt;
+    color:White;
     text-align:left;
     margin-left:180px;
     }

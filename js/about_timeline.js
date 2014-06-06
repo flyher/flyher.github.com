@@ -7,13 +7,13 @@
         helpToggle();
         systole();
         //slideImg();
-        downM();
-        ExtMutual();
-        slides("#slides", ".slides");
-        skinMutual();
-        srollList("#dialog01", "11");
-        srollList("#dialog02", "6");
-        anchorLink();
+        //downM();
+        //ExtMutual();
+        //slides("#slides", ".slides");
+        //skinMutual();
+        //srollList("#dialog01", "11");
+        //srollList("#dialog02", "6");
+        //anchorLink();
 
         var img = document.createElement("img");
         img.onload = function () {
@@ -25,7 +25,7 @@
 
     //滚动
     function nav() {
-        var $liCur = $(".nav-box ul li.cur"),
+      var $liCur = $(".nav-box ul li.cur"),
       curP = $liCur.position().left,
       curW = $liCur.outerWidth(true),
       $slider = $(".nav-line"),
