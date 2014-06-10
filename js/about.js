@@ -107,9 +107,9 @@ window.onload = function () {
     console.log("过了四级，可以阅读普通的文档，英文交流有障碍。");
     console.groupEnd();
 
-    console.group("不喜欢");
-    console.log("(1)太过繁琐复杂的面试流程;");
-    console.log("(2)外包公司；");
+    console.group("以下请勿打扰，谢谢理解：");
+    console.log("(1)笔试、机试依赖症公司;");
+    console.log("(2)外包、外派公司；");
     console.groupEnd();
 
     console.group("求职意向");
