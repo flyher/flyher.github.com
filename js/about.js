@@ -95,7 +95,7 @@ window.onload = function () {
     console.log("数据库：MS Access，Sqlite，MySQL");
     console.log("  ");
     console.log("不会：");
-    console.log("类型：WCF，PhotoShop");
+    console.log("类型：Scoket，WCF，PhotoShop");
     console.groupEnd();
 
     console.group("可接受");
