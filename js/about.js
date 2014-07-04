@@ -69,11 +69,11 @@ window.onload = function () {
     initapp("app20");*/
     /*输出我的信息*/
     var me = {};
-    me.name = "董家迪";
-    me.phone = "185 2159 2798";
-    me.email = "dong3580@163.com";
-    me.location = "上海外高桥保税区";
-    me.web = "http://www.flyher.net";
+    me.name = "";
+    me.phone = "";
+    me.email = "";
+    me.location = "";
+    me.web = "";
 
     console.error("出现错误要么是用了IE，要么就是JS统计和JS留言板网络问题。");
 
@@ -124,7 +124,7 @@ window.onload = function () {
 
     console.group("其它我的资料");
     console.log("工作经验：http://flyher.github.io/timeline.html");
-    console.log("我的博客：http://www.flyher.net(近期一些众所周知的原因，博客可能访问不稳定)");
+    console.log("我的博客：#(一些众所周知的原因，博客可能访问不稳定)");
     console.log("Word简历：中文版 http://flyher.github.io/doc/jlzh-cn.doc");
     console.log("Word简历：英文版(蹩脚) http://flyher.github.io/doc/jlen.doc");
     console.log("Github开源项目:https://github.com/flyher")
