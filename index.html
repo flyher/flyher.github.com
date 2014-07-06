@@ -1,5 +1,5 @@
 ---
-title: ��ҳ
+title: 首页
 layout: page
 ---
 
@@ -24,12 +24,12 @@ layout: page
 
   {% if paginator.previous_page %}
     {% if paginator.previous_page == 1 %}
-    <a href="/"><ǰҳ</a>
+    <a href="/"><前页</a>
     {% else %}
-    <a href="/page{{paginator.previous_page}}">&lt;ǰҳ</a>
+    <a href="/page{{paginator.previous_page}}">&lt;前页</a>
     {% endif %}
   {% else %}
-    <span class="previous disabled">&lt;ǰҳ</span>
+    <span class="previous disabled">&lt;前页</span>
   {% endif %}
 
       {% if paginator.page == 1 %}
@@ -47,9 +47,10 @@ layout: page
     {% endfor %}
 
   {% if paginator.next_page %}
-    <a class="next" href="/page{{paginator.next_page}}">��ҳ&gt;</a>
+    <a class="next" href="/page{{paginator.next_page}}">后页&gt;</a>
   {% else %}
-    <span class="next disabled" >��ҳ&gt;</span>
+    <span class="next disabled" >后页&gt;</span>
   {% endif %}
-  (��{{ paginator.total_posts }}ƪ)
+  (共{{ paginator.total_posts }}篇)
 </div>
+
