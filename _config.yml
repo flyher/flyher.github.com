@@ -13,4 +13,10 @@ github: flyher
 pygments: true
 safe: true
 paginate: 20
-about: "这是flyher的测试博客"
+about: "这是flyher的测试博客
+
+同时，你可以通过本域名访问所有的项目,例如：
+(树莓派资源)[http://99diary.com/shumeipai]:
+
+
+"
