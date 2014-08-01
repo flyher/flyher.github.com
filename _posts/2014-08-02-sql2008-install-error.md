@@ -15,7 +15,9 @@ Sql server 2008忽然连接不上了，死活没办法，蛋碎之际，只好�
 点击安装总提示：
 
 ```
-“创建userSettings/Microsoft.SqlServer.Configuration.LanddingPage.Properies.Settings的配置节处理程序时出错：未能加载文件或程序集“System, Version=4.0.0.0,Culture=neutral,  PublicKeyToken=b77a5a561934e089”或它的某一个依赖项。系统找不到指定的文件。”
+“创建userSettings/Microsoft.SqlServer.Configuration.LanddingPage.Properies.Settings的
+配置节处理程序时出错：未能加载文件或程序集“System, Version=4.0.0.0,Culture=neutral,
+PublicKeyToken=b77a5a561934e089”或它的某一个依赖项。系统找不到指定的文件。”
 ```
 
 经过查找还好解决了办法：
