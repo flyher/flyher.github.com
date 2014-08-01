@@ -20,7 +20,8 @@ Sql server 2008忽然连接不上了，死活没办法，蛋碎之际，只好�
 
 经过查找还好解决了办法：
 
-1. 由于先装了VS开发环境造成的，需要删除 C:\Users\username\AppData\Local\Microsoft_Corporation\LandingPage.exe_StrongName_ryspccglaxmt4nhllj5z3thycltsvyyx\10.0.0.0\user.config 来解决。
+1. 由于先装了VS开发环境造成的，需要删除 C:\Users\username\AppData\Local\Microsoft_Corporation
+\LandingPage.exe_StrongName_ryspccglaxmt4nhllj5z3thycltsvyyx\10.0.0.0\user.config 来解决。
 
 果然开始可以安装Sql server 2008.
 
