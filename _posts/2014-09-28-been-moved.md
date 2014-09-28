@@ -22,6 +22,6 @@ tags: 情感
 After all,tomorrow is another day!
 ```
 
-![been-moved](assets/img/2014092801.JPG)
+![been-moved](../assets/img/2014092801.JPG)
 
 加油！
