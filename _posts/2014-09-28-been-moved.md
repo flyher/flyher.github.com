@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-09-28 23:02:00+00:00
 layout: post
 title: 泪奔
@@ -23,4 +23,3 @@ After all,tomorrow is another day!
 '
 
 加油！
-
