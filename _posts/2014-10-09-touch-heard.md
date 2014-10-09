@@ -14,8 +14,11 @@ tags: 情感
 
 要不，看完吧...
 
-![heavy-heard](../assets/img/2014100901.JPG)
 
-![heavy-heard](../assets/img/2014100902.JPG)
+![touch-heard](../assets/img/2014100901.JPG)
 
+![touch-heard](../assets/img/2014100902.JPG)
 
+还有个要说的事，上次一发工资，又续费了一下域名..Oh，又长了一年...
+
+还有个很糟糕的事情，没被妹纸看上，然后就开始被老爸老爸逼婚了...这又是要被相亲的节奏，诶，妹纸害人一生...
