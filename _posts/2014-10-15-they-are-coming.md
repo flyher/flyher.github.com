@@ -20,6 +20,6 @@ They are coming!
 
 上两张靓照：
 
-![they-are-coming](../assets/img/2014101501.JPG)
+![they-are-coming](../assets/img/2014101501.jpg)
 
-![they-are-coming](../assets/img/2014101502.JPG)
+![they-are-coming](../assets/img/2014101502.jpg)
