@@ -3,8 +3,8 @@ date: 2014-09-23 22:46:00+00:00
 layout: post
 title: 批评
 thread: 11
-categories: 杂记
-tags: 生活
+categories: 乱记
+tags: 杂谈
 ---
 
 

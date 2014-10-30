@@ -3,8 +3,8 @@ date: 2014-10-22 22:17:00+00:00
 layout: post
 title: 苦逼
 thread: 17
-categories: 杂记
-tags: 生活
+categories: 乱记
+tags: 杂谈
 ---
 
 

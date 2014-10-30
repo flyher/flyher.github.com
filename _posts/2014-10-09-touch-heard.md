@@ -3,7 +3,7 @@ date: 2014-10-09 23:45:00+00:00
 layout: post
 title: 感动
 thread: 15
-categories: 杂记
+categories: 乱记
 tags: 情感
 ---
 

@@ -3,7 +3,7 @@ date: 2014-09-28 23:02:00+00:00
 layout: post
 title: 泪奔
 thread: 13
-categories: 杂记
+categories: 乱记
 tags: 情感
 ---
 

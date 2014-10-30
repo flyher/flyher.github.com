@@ -3,8 +3,8 @@ date: 2014-10-15 23:06:00+00:00
 layout: post
 title: They are coming!
 thread: 16
-categories: 杂记
-tags: 生活
+categories: 乱记
+tags: 杂谈
 ---
 
 

@@ -3,7 +3,7 @@ date: 2014-07-06 14:51:00+00:00
 layout: post
 title: 新的站点
 thread: 1
-categories: 杂记
+categories: 乱记
 tags: 站点
 ---
 

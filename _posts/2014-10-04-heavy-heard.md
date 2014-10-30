@@ -3,7 +3,7 @@ date: 2014-10-04 17:27:00+00:00
 layout: post
 title: 心塞
 thread: 14
-categories: 杂记
+categories: 乱记
 tags: 情感
 ---
 
