@@ -25,3 +25,4 @@ tags: 杂谈
 
 ![electric-light-break](../assets/img/2014103003.jpg)
 
+新家伙格外的亮...
