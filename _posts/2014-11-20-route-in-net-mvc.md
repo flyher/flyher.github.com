@@ -28,10 +28,13 @@ tags: .NET
 ```
 
 检查名字的 API的访问路径就为：
+
 ```html
 http://xxx.com/user/checkname
 ```
+
 更新到第二个版本的时候，只需要将路由更改了：
+
 ```C#
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -45,10 +48,13 @@ http://xxx.com/user/checkname
 
         }
 ```
+
 API路径就变成了：
+
 ```html
 http://xxx.com/v2/user/checkname
 ```
+
 对于并存多个版本的API太爽了。
 
 ![route-in-net-mvc](../assets/img/2014112001.jpg)
