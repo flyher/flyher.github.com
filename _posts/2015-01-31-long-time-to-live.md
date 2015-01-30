@@ -15,5 +15,6 @@ tags: 情感
 
 你若安好，便是晴天。
 
+![long-time-to-live](../assets/img/2015013101.jpg)
 
 
