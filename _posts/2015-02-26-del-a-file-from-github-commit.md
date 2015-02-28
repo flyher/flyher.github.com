@@ -1,7 +1,7 @@
 ---
 date: 2015-02-26 10:27:00+00:00
 layout: post
-title: 时光
+title: 从所有提交中删除一个文件
 thread: 27
 categories: 技术
 tags: Git
