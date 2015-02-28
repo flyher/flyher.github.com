@@ -9,7 +9,7 @@ tags: Git
 
 从所有的Git提交中删除一个文件
 
-```shell
+```sh
 $ git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 ```
 
