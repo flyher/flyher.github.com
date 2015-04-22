@@ -9,4 +9,6 @@ tags: 歌曲
 
 还不错～～～
 
-http://player.youku.com/player.php/sid/XNDA0NDE5NTA0/v.swf
+[亲爱的小孩](http://player.youku.com/player.php/sid/XNDA0NDE5NTA0/v.swf)
+
+MarkDown没法引用flash么

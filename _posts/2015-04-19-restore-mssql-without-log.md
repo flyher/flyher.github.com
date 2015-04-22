@@ -17,6 +17,7 @@ tags: Sql
 譬如这篇：[传送门](http://blog.csdn.net/xiulamimi/article/details/8217055)
 
 作者提供的方式，无非是这几行代码解决：
+
 ```sql
 alter database dbName set emergency
 alter database dbName set single_user
@@ -24,6 +25,7 @@ dbcc checkdb('dbName',REPAIR_ALLOW_DATA_LOSS)
 dbcc checkdb('dbName',REPAIR_REBUILD)
 alter database dbName set multi_user
 ```
+
 尝试一番，确实可以打开数据库操作了，但是发现分离数据库再次附加，就会报同样的错误，治标不治本。
 没办法，只好搜索“Attach mdf file without ldf file in MSSQL”，发现此文章：[传送门](http://blog.sqlauthority.com/2010/04/26/sql-server-attach-mdf-file-without-ldf-file-in-database/)
 

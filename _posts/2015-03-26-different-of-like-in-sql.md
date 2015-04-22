@@ -14,6 +14,7 @@ Select UserName,Email from UserInfo where UserName like '%'+@Keywords+'%' or Ema
 ```
 
 查询语句一直报错，尝试更改为：
+
 ```sql
 Select UserName,Email from UserInfo where UserName like '%@Keywords%' or Email like '%@Keywords%'
 ```
