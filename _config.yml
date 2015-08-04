@@ -1,25 +1,123 @@
-markdown: rdiscount
-permalink: /:title/
-url: http://99diary.com
-name: ä¹…ä¹…æ—¥è®°æœ¬
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: ¾Ã¾ÃÈÕ¼Ç±¾
+subtitle:
+description:test
 author: flyher
-qq: 
-email: slivery#icloud.com
-duoshuo: 99diary
-beian: æš‚æ— 
-cnzz: 1000524648
-weibo: 
-github: flyher
-pygments: true
-safe: true
-paginate: 20
-about: "è¿™æ˜¯flyherçš„æµ‹è¯•åšå®¢
+language:zh-cn
+timezone:
 
-åŒæ—¶ï¼Œä½ å¯ä»¥é€šè¿‡æœ¬åŸŸåè®¿é—®æ‰€æœ‰çš„é¡¹ç›®,ä¾‹å¦‚ï¼š<br/>
-[æ ‘è“æ´¾èµ„æº](http://99diary.com/shumeipai):æ ‘è“æ´¾èµ„æ–™;<br/>
-[EmuchSign](http://99diary.com/EmuchSign)ï¼šå°æœ¨è™«ç­¾åˆ°;<br/>
-[JqTimeLine](http://99diary.com/JqTimeLine):ä¸€ä¸ªæŠ˜çº¿å›¾çš„ç”»æ³•<br>
-......
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://www.99diary.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
 
-"
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: next
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type:
+  
+  
+# =============================================================================
+# NexT Theme configuration
+# =============================================================================
+
+# ¶àËµÕÊºÅ
+duoshuo_shortname: 99diary
+
+# DISQUS ÕÊºÅ £¨Èç¹ûÒÑ¾­ÉèÖÃ ¶àËµ ÕÊºÅ£¬´ËÑ¡Ïî½«±»Ìø¹ı£©
+disqus_shortname: 
+
+# JiaThis ·ÖÏí·şÎñ
+jiathis: true
+
+# ¶àËµ ·ÖÏí·şÎñ£¨±ØĞëÆôÓÃ¶àËµ£©
+duoshuo_share:
+
+# Éç½»Á´½Ó£¬½«ÔÚ²àÀ¸ÖĞÏÔÊ¾
+social:
+  GitHub: your-github-url
+  Twitter: your-twitter-url
+  Weibo: your-weibo-url
+  DouBan: your-douban-url
+  ZhiHu: your-zhihu-url
+  # µÈµÈ
+
+
+# Creative Commons 4.0 International License.
+# http://creativecommons.org/
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+creative_commons: by-nc-sa
+
+
+# Google Õ¾³¤¹¤¾ßÑéÖ¤£¬ÇëÑ¡Ôñ `HTML Meta` ÑéÖ¤·½Ê½
+# See: https://www.google.com/webmasters/
+google_site_verification: 
+
+
+# Google ·ÖÎö ID
+google_analytics:UA-65955218-1
+
+
+# °Ù¶ÈÍ³¼Æ ID£¬´Ë ID ÊÇ°Ù¶ÈÍ³¼ÆÌá¹©½Å±¾ÖĞ hm.js? ºóÃæÄÇ´®×Ö·û£¬·Ç°Ù¶ÈÍ³¼ÆÕÊºÅ
+baidu_analytics: 
+
+# Õ¾µãÆğÊ¼Ê±¼ä
+since: 2013
+
+# =============================================================================
+# End NexT Theme configuration
+# =============================================================================
