@@ -165,8 +165,8 @@
           
           
             
-              <a class="post-title-link" href="/2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="url">
-                原来路由设置这么好玩
+              <a class="post-title-link" href="/2014/11/20/2015-08-04-hello-world/" itemprop="url">
+                新的博客
               </a>
             
           
@@ -186,8 +186,8 @@
             &nbsp; | &nbsp; 分類於
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/技术/" itemprop="url" rel="index">
-                  <span itemprop="name">技术</span>
+                <a href="/categories/站点/" itemprop="url" rel="index">
+                  <span itemprop="name">站点</span>
                 </a>
               </span>
 
@@ -202,8 +202,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2014/11/20/2014-11-20-route-in-net-mvc/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="commentsCount"></span>
+              <a href="/2014/11/20/2015-08-04-hello-world/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/20/2015-08-04-hello-world/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -218,18 +218,7 @@
 
       
         
-          <span itemprop="articleBody"><p>之前用.NET MVC，唯一爽的就是自己写方法和视图，自由角度比较大，而且部署之后在服务器上的虚拟路径甚至可以动态决定。好处：单看网站，无法找出网站的目录情况；坏处：谷歌爬虫收录起来就惨了。</p>
-<p>最近要做Outh2服务端，突然发现，路由原来能够直接更改网站部署后的虚拟路径格式，这样，Api版本控制起来就爽了。</p>
-<p>在Global.asax添加路由控制：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>检查名字的 API的访问路径就为：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/user/checkname</span><br></pre></td></tr></table></figure>
-<p>更新到第二个版本的时候，只需要将路由更改了：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;v2/&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
-<p>API路径就变成了：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/v2/user/checkname</span><br></pre></td></tr></table></figure>
-<p>对于并存多个版本的API太爽了。</p>
-<p><img src="http://99diary.com/assets/img/2014112001.jpg" alt="route-in-net-mvc"></p>
+          <span itemprop="articleBody"><p>Hexo版本博客</p>
 </span>
         
       
@@ -1089,7 +1078,7 @@
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分類</span>
               
           </div>

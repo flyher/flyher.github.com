@@ -165,83 +165,6 @@
           
           
             
-              <a class="post-title-link" href="/2015/08/04/hello-world/" itemprop="url">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-08-04T15:36:51+08:00" content="2015-08-04">
-            2015-08-04
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/04/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/04/hello-world/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
               <a class="post-title-link" href="/2015/04/19/2015-04-19-restore-mssql-without-log/" itemprop="url">
                 MSSQL无日志处理的一种方式
               </a>
@@ -1047,6 +970,101 @@
 
 
     
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="url">
+                原来路由设置这么好玩
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2014-11-20T16:48:00+08:00" content="2014-11-20">
+            2014-11-20
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分類於
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/技术/" itemprop="url" rel="index">
+                  <span itemprop="name">技术</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/11/20/2014-11-20-route-in-net-mvc/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>之前用.NET MVC，唯一爽的就是自己写方法和视图，自由角度比较大，而且部署之后在服务器上的虚拟路径甚至可以动态决定。好处：单看网站，无法找出网站的目录情况；坏处：谷歌爬虫收录起来就惨了。</p>
+<p>最近要做Outh2服务端，突然发现，路由原来能够直接更改网站部署后的虚拟路径格式，这样，Api版本控制起来就爽了。</p>
+<p>在Global.asax添加路由控制：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>检查名字的 API的访问路径就为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/user/checkname</span><br></pre></td></tr></table></figure>
+<p>更新到第二个版本的时候，只需要将路由更改了：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;v2/&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>API路径就变成了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/v2/user/checkname</span><br></pre></td></tr></table></figure>
+<p>对于并存多个版本的API太爽了。</p>
+<p><img src="http://99diary.com/assets/img/2014112001.jpg" alt="route-in-net-mvc"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1092,7 +1110,7 @@
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分類</span>
               
           </div>
