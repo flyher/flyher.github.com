@@ -40,7 +40,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="久久日记本">
-<meta property="og:url" content="http://99diary.com/index.html">
+<meta property="og:url" content="http://99diary.com/page/5/index.html">
 <meta property="og:site_name" content="久久日记本">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -163,8 +163,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/19/2015-04-19-restore-mssql-without-log/" itemprop="url">
-                MSSQL无日志处理的一种方式
+              <a class="post-title-link" href="/2014/07/27/2014-07-27-an-article-about-last-day/" itemprop="url">
+                我的爱情古典如斯
               </a>
             
           
@@ -174,8 +174,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-19T12:13:00+08:00" content="2015-04-19">
-            2015-04-19
+          <time itemprop="dateCreated" datetime="2014-07-27T22:23:00+08:00" content="2014-07-27">
+            2014-07-27
           </time>
         </span>
 
@@ -184,8 +184,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/技术/" itemprop="url" rel="index">
-                  <span itemprop="name">技术</span>
+                <a href="/categories/旧日/" itemprop="url" rel="index">
+                  <span itemprop="name">旧日</span>
                 </a>
               </span>
 
@@ -200,8 +200,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/19/2015-04-19-restore-mssql-without-log/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/19/2015-04-19-restore-mssql-without-log/" itemprop="commentsCount"></span>
+              <a href="/2014/07/27/2014-07-27-an-article-about-last-day/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/27/2014-07-27-an-article-about-last-day/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -216,16 +216,17 @@
 
       
         
-          <span itemprop="articleBody"><p>全量备份数据库的两个文件的时候，突然发现Log文件一直在复制到720M的时候立即就报磁盘错误，以为是系统问题，遂切换到其它系统，甚至PE，居然依然这个错误，猜测Log可能被损坏。<br>这是一个很伤感的故事，数据库存了不少重要的资料。</p>
-<p>1.生成数据脚本文件，发现单个文件居然1G多，拆分成单表sql脚本文件，依然比较大，MSSql Manage直接报内存不够，看来那么多数据，总不能一个个恢复吧。</p>
-<p>2.尝试网站查找解决方案，“无日志文件恢复MSSQL数据”，发现千篇一律的一个文章：</p>
-<p>譬如这篇：<a href="http://blog.csdn.net/xiulamimi/article/details/8217055" target="_blank" rel="external">传送门</a></p>
-<p>作者提供的方式，无非是这几行代码解决：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> emergency</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> single_user</span><br><span class="line">dbcc checkdb(<span class="string">'dbName'</span>,REPAIR_ALLOW_DATA_LOSS)</span><br><span class="line">dbcc checkdb(<span class="string">'dbName'</span>,REPAIR_REBUILD)</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> multi_user</span></span><br></pre></td></tr></table></figure>
-<p>尝试一番，确实可以打开数据库操作了，但是发现分离数据库再次附加，就会报同样的错误，治标不治本。<br>没办法，只好搜索“Attach mdf file without ldf file in MSSQL”，发现此文章：<a href="http://blog.sqlauthority.com/2010/04/26/sql-server-attach-mdf-file-without-ldf-file-in-database/" target="_blank" rel="external">传送门</a></p>
-<p>一老外给出了方案，</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">USE</span> [<span class="keyword">master</span>]</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="comment">-- Method 1: I use this method</span></span><br><span class="line">EXEC sp_attach_single_file_db @dbname=<span class="string">'TestDb'</span>,</span><br><span class="line">@physname=<span class="keyword">N</span><span class="string">'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\TestDb.mdf'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="comment">-- Method 2:</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> TestDb <span class="keyword">ON</span></span><br><span class="line">(FILENAME = <span class="keyword">N</span><span class="string">'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\TestDb.mdf'</span>)</span><br><span class="line"><span class="keyword">FOR</span> ATTACH_REBUILD_LOG</span><br><span class="line"><span class="keyword">GO</span></span></span><br></pre></td></tr></table></figure>
-<p>Method2果然解决了问题。</p>
+          <span itemprop="articleBody"><p>我一直都不敢写这几天我是怎么过来的，窗外的雨淅淅沥沥，盼到的火车汽笛声响起，终于该说不得不离开这座我余生都无法忘记的城市了，却突然有点舍不得……-</p>
+<p>那雨，下得大了起来，伴随着震耳的雷声，和火车飞驰铁轨有节奏的敲击声混杂在一起。杭州这个地方，雨总是那么频繁，多年前的那个女子，那次离开西子湖畔的背影，寂静的雨下得有点孤独，也有点喧闹。-</p>
+<p>我肯定我是喜欢文字的，再或许，是文字左右了我的心情。梦幻，在西湖雨中上演着不可能的悲哀，凄美又有点让人怜惜。来到杭州这个地方已经有很多年了，每每想起这个话题，总有太多的东西需要整理，太多太多。我没有忘掉那个辗转曾苦苦守望在西子湖畔的誓言，可，曾经的人，安在？-</p>
+<p>第一次想到的离开，那些岁月究竟发生过什么，也许只能用自己的余生去忘记。在这个关于她的年代，慢慢去忘掉与她的一切，开始我新的旅途。-</p>
+<p>西子湖畔的清晨，雨下得整个世界都灰蒙蒙的，我从没有这么犹豫得看着湖里的荷花，憔悴笼罩在整个西湖的上空。雨水一滴一滴打在我的脸上…遇到那个女子就是在西子湖畔，与这场大雨有着太多关系，此刻，西湖雨还是没有停住，心里的一切又如何述说开始，那也许，本身就是一种结束……</p>
+<p>苏堤的垂柳没有书本上描写的那么多，稀疏的柳下挡不住多少尘埃，唯有湖里的荷花在夏日的天气里楚楚动人，出淤湖而不染，果是这样！真不知道，当初白娘子和许仙见面的时候是不是也有这么多荷花，还有这样的雨？-</p>
+<p>不巧的雨水打湿了衣服，我不知所措，同情的伞遮住了一片天，也遮住了一丝抑郁…可是，谁又能明白，这场雨后，再有多大的西子雨水还会有人为我撑伞，真的，如今，我又怎么敢奢望。-</p>
+<p>那天的心情像西湖的雨一样散落在湖水上，打起微微波澜，我沉思，失落，或者，还有更多我都无法形容的东西融合在里面。我承认我是怀着一颗不太虔诚的心去看西湖的风景的，我承认那天我无意遇到了一个能给我撑伞的女孩，可我还想再去承认我的爱情，只是，那种许仙一样的情愫终究属于一场神话，留在传说中。-</p>
+<p>“欲把西湖比西子，浓妆淡抹总相宜”，苏东坡没有说出自己真实的西湖感情，而我，在这段故事的背后不知深藏了多少泪水，有谁能懂？也许，当有的一切被这个美丽的地方所征服时，我心底的瑕疵，才能慢慢和与水一样散落，沉重地打在水中，罗纹般起伏，然后，消逝……-</p>
+<p>火车窗外的雨水依旧下得很大了，窗子变得模糊了很多，我闭上双眼，西湖，原谅我的不辞而别，原谅我的懦弱。我知道，在这个灯红酒绿的年代，太多纯真的感情被现实所冲淡，消失，人们怀揣着复杂的心情来来去去，而，我在这整个生命中也时常也会想起你，想起那个西子湖畔的一切：清脆的雨下/一把绢伞/遗落断桥旁/雾里水里/荷花暗香/坠入轻烟/飘在湖上/满天红霞/绿树苍苍/雨淋湿湖水/淋湿清风/我的爱人/你可等着。</p>
+<p>–于2010-6-12 10:17</p>
 </span>
         
       
@@ -256,8 +257,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/19/2015-04-19-dear-child/" itemprop="url">
-                亲爱的小孩
+              <a class="post-title-link" href="/2014/07/26/2014-07-26-nokia-6120c-dead/" itemprop="url">
+                小诺阵亡
               </a>
             
           
@@ -267,8 +268,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-19T10:11:00+08:00" content="2015-04-19">
-            2015-04-19
+          <time itemprop="dateCreated" datetime="2014-07-26T13:07:00+08:00" content="2014-07-26">
+            2014-07-26
           </time>
         </span>
 
@@ -293,8 +294,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/19/2015-04-19-dear-child/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/19/2015-04-19-dear-child/" itemprop="commentsCount"></span>
+              <a href="/2014/07/26/2014-07-26-nokia-6120c-dead/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/26/2014-07-26-nokia-6120c-dead/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -309,9 +310,10 @@
 
       
         
-          <span itemprop="articleBody"><p>还不错～～～</p>
-<p><a href="http://player.youku.com/player.php/sid/XNDA0NDE5NTA0/v.swf" target="_blank" rel="external">亲爱的小孩</a></p>
-<p>MarkDown没法引用flash么</p>
+          <span itemprop="articleBody"><p>本周二下班回来,它已经自动关机了,以为没电,插上usb充电,谁知不断闪烁着屏幕,我的6120c阵亡了.</p>
+<p>2009年,直到现在发挥着闹钟的预热,将近过了5年,五年过去了,它却挂了.</p>
+<p>拍下无数张照片,被妹纸握过,被我换过两次壳,摔过几次,差点被摩托碾过…</p>
+<p>你死的好惨啊…留下尸体一枚,文字寥寥,纪念.</p>
 </span>
         
       
@@ -342,8 +344,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/03/26/2015-03-26-different-of-like-in-sql/" itemprop="url">
-                like查询在数据库中的不同
+              <a class="post-title-link" href="/2014/07/13/2014-07-13-cry-lit-girl/" itemprop="url">
+                小孩子的哭
               </a>
             
           
@@ -353,182 +355,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-03-26T05:38:00+08:00" content="2015-03-26">
-            2015-03-26
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/技术/" itemprop="url" rel="index">
-                  <span itemprop="name">技术</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/03/26/2015-03-26-different-of-like-in-sql/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/26/2015-03-26-different-of-like-in-sql/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>将某个MSSql的like语句调整到MySql上，</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">Select UserName,Email <span class="keyword">from</span> UserInfo <span class="keyword">where</span> UserName <span class="keyword">like</span> <span class="string">'%'</span>+@Keywords+<span class="string">'%'</span> <span class="keyword">or</span> Email <span class="keyword">like</span> <span class="string">'%'</span>+@Keywords+<span class="string">'%'</span></span></span><br></pre></td></tr></table></figure>
-<p>查询语句一直报错，尝试更改为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">Select UserName,Email <span class="keyword">from</span> UserInfo <span class="keyword">where</span> UserName <span class="keyword">like</span> <span class="string">'%@Keywords%'</span> <span class="keyword">or</span> Email <span class="keyword">like</span> <span class="string">'%@Keywords%'</span></span></span><br></pre></td></tr></table></figure>
-<p>结果发现不报错了，但是参数KeyWords没有被替换成值，查了一下资料，居然发现MySql的和Oracle/MSSql的一些不同：<br>“mssql是用+号拼接，oracle是用||拼接，mysql就是concat(var1,var2,…..)拼接”<br>于是改为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">Select UserName,Email <span class="keyword">from</span> UserInfo <span class="keyword">where</span> UserName <span class="keyword">like</span> <span class="keyword">concat</span>(<span class="string">'%'</span>,@Keywords,<span class="string">'%'</span>) <span class="keyword">or</span> Email <span class="keyword">like</span> <span class="keyword">concat</span>(<span class="string">'%'</span>,@Keywords,<span class="string">'%'</span>)</span></span><br></pre></td></tr></table></figure></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/02/26/2015-02-26-del-a-file-from-github-commit/" itemprop="url">
-                从所有提交中删除一个文件
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-02-26T10:27:00+08:00" content="2015-02-26">
-            2015-02-26
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/技术/" itemprop="url" rel="index">
-                  <span itemprop="name">技术</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/02/26/2015-02-26-del-a-file-from-github-commit/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/26/2015-02-26-del-a-file-from-github-commit/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>从所有的Git提交中删除一个文件</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git filter-branch --tree-filter &#39;rm -f passwords.txt&#39; HEAD</span><br></pre></td></tr></table></figure>
-<p>from <a href="http://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2" target="_blank" rel="external">here</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/01/31/2015-01-31-long-time-to-live/" itemprop="url">
-                时光
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-01-31T01:23:00+08:00" content="2015-01-31">
-            2015-01-31
+          <time itemprop="dateCreated" datetime="2014-07-13T23:19:00+08:00" content="2014-07-13">
+            2014-07-13
           </time>
         </span>
 
@@ -553,8 +381,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/01/31/2015-01-31-long-time-to-live/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/31/2015-01-31-long-time-to-live/" itemprop="commentsCount"></span>
+              <a href="/2014/07/13/2014-07-13-cry-lit-girl/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/13/2014-07-13-cry-lit-girl/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -569,11 +397,7 @@
 
       
         
-          <span itemprop="articleBody"><p>写了很多很多，删了一遍又一遍，我知道我该删掉忧伤，只留下一段话吧。</p>
-<p>我努力着停留在你的生命中不近不远的地方，我试着陪伴着你去面对以后。我怕你的懦弱，会让你悲观，所以我现在会说，你变了，变得懦弱了。牵挂太多，不免让人悲观，我不能让你悲观，所以我告诉你我以后会帮你照顾你家宝贝的，是的，我是这么说的，也会这么做到。</p>
-<p>所以，你必须要给我努力得活着，永远不要放弃，必须，L！</p>
-<p>你若安好，便是晴天。</p>
-<p><img src="http://99diary.com/assets/img/2015013101.jpg" alt="long-time-to-live"></p>
+          <span itemprop="articleBody"><p>妞妞刚醒就开始哭，太纠结了，哄小孩貌似要点技术…以后养小孩可怎么办啊？</p>
 </span>
         
       
@@ -604,8 +428,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/01/01/2015-01-01-happy-new-year/" itemprop="url">
-                来了,2015
+              <a class="post-title-link" href="/2014/07/11/2014-07-11-wet-int-the-rain/" itemprop="url">
+                淋雨
               </a>
             
           
@@ -615,8 +439,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-01-01T12:50:00+08:00" content="2015-01-01">
-            2015-01-01
+          <time itemprop="dateCreated" datetime="2014-07-11T23:37:00+08:00" content="2014-07-11">
+            2014-07-11
           </time>
         </span>
 
@@ -641,8 +465,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/01/01/2015-01-01-happy-new-year/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/01/2015-01-01-happy-new-year/" itemprop="commentsCount"></span>
+              <a href="/2014/07/11/2014-07-11-wet-int-the-rain/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/11/2014-07-11-wet-int-the-rain/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -657,8 +481,176 @@
 
       
         
-          <span itemprop="articleBody"><p>小记就不写了哈,新的一年!加油!</p>
-<p>想方设法变成男神,吼吼,变成男票也行吧…</p>
+          <span itemprop="articleBody"><p>刚出地铁站，超大的雨，电闪雷鸣，狂风，虽然带着伞，全身湿透…苦逼的孩子。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/07/09/2014-07-09-lost-road/" itemprop="url">
+                迷路
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-07-09T22:52:00+08:00" content="2014-07-09">
+            2014-07-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/乱记/" itemprop="url" rel="index">
+                  <span itemprop="name">乱记</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/07/09/2014-07-09-lost-road/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/09/2014-07-09-lost-road/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>新住的地方，夜晚加班了，回来都九点了，然后就悲剧的迷路了。。。转了一圈，居然就在旁边。。。郁闷。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/07/06/2014-07-06-hello-blog/" itemprop="url">
+                新的站点
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-07-06T14:51:00+08:00" content="2014-07-06">
+            2014-07-06
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/乱记/" itemprop="url" rel="index">
+                  <span itemprop="name">乱记</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/07/06/2014-07-06-hello-blog/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/06/2014-07-06-hello-blog/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>这是一个新的站点:</p>
+<p><a href="http://www.99diary.com" target="_blank" rel="external">http://www.99diary.com</a></p>
 </span>
         
       
@@ -682,7 +674,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
  </div>

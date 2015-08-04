@@ -163,6 +163,391 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/13/2014-12-13-miserable-about/" itemprop="url">
+                悲催
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-12-13T01:45:00+08:00" content="2014-12-13">
+            2014-12-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/乱记/" itemprop="url" rel="index">
+                  <span itemprop="name">乱记</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/12/13/2014-12-13-miserable-about/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/13/2014-12-13-miserable-about/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>这么冷的天，冻脚…</p>
+<p>夜晚加班回来，又在刚刚才把妹纸需求的效果写好，悲催的孩纸…</p>
+<p>可恶的妹纸…凶巴巴的…</p>
+<p>还有群猪房某个男人，每次都在半夜1点半洗澡，然后每次洗澡，还有上厕所的时候还要嗷嗷叫，拜托，不至于欲望这么强烈吧…</p>
+<p>找了一张图形容此刻的心情:</p>
+<p><img src="http://99diary.com/assets/img/2014121301.jpg" alt="miserable-about"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/11/30/2014-11-30-yyets-strange-redirect-js/" itemprop="url">
+                人人影视奇怪的JS跳转
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-11-30T23:35:00+08:00" content="2014-11-30">
+            2014-11-30
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/技术/" itemprop="url" rel="index">
+                  <span itemprop="name">技术</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/11/30/2014-11-30-yyets-strange-redirect-js/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/30/2014-11-30-yyets-strange-redirect-js/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>看到网上有人说<a href="http://www.rrys123.com/是人人影视的新域名，访问了一下，然后就是每次打开yyets.com都会重定向到这个地址。然后发现，在电脑的上所有浏览器中访问人人影视都会自动跳转到该地址。猜测自己中招了：" target="_blank" rel="external">http://www.rrys123.com/是人人影视的新域名，访问了一下，然后就是每次打开yyets.com都会重定向到这个地址。然后发现，在电脑的上所有浏览器中访问人人影视都会自动跳转到该地址。猜测自己中招了：</a></p>
+<p>查看了请求头信息：</p>
+<p>1.页面首先Get请求yyets.com地址，提示502Bad Gateway.</p>
+<p>2.然后页面继续请求www.yyets.com地址，提示301 Moved Permanaently.</p>
+<p>这一步返回的html中发现了大量的www.rrys123.com。</p>
+<p>3.然后就出现调到了www.rrys123.com</p>
+<p>并没有在请求头中发现什么异常，于是看了看第2步的js代码，无意中在地址：</p>
+<p><a href="http://js.rrsub.net/js/yyets.js?t=20140612" target="_blank" rel="external">http://js.rrsub.net/js/yyets.js?t=20140612</a></p>
+<p>发现了倒数几个正则重定向代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line">$.cookie(d,e,&#123;expires:<span class="number">12</span>,path:<span class="string">"/"</span>&#125;)&#125;&#125;;</span><br><span class="line">$.fn.ctrl_enter=<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  $(<span class="keyword">this</span>).keypress(<span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(b.ctrlKey&amp;&amp;(b.which==<span class="number">13</span>||b.which==<span class="number">10</span>))&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> a==<span class="string">"function"</span>)&#123;</span><br><span class="line">       a.call(<span class="keyword">this</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       $(<span class="keyword">this</span>).parents(<span class="string">"form"</span>).submit()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> host_regx=<span class="regexp">/(\.yyets\.com)|(\.rrys\.tv)|(\.rrys123\.com)|(\.rrsub.com)$/i</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.location.host.search(host_regx)&lt;<span class="number">1</span>&amp;&amp;<span class="built_in">window</span>.location.host!=<span class="string">"yyets.com"</span>)&#123;</span><br><span class="line">  $(<span class="string">"title"</span>).text(<span class="string">""</span>);</span><br><span class="line">  alert(<span class="string">"\u4EBA\u4EBA\u5F71\u8996\u4E2D\u570B\u5730\u5340\u7DB2\u7AD9\u6B63\u5F0F\u95DC\u9589\uFF01\u8ACB\u4E0D\u8981\u4EE5\u4EFB\u4F55\u5F62\u5F0F\u507D\u9020\u4EBA\u4EBA\u5F71\u8996\u7DB2\u7AD9\u3002\u6211\u5011\u7684\u552F\u4E00\u7DB2\u5740\u662F\uFF1Awww.yyets.com\uFF0C\u611F\u8C22\u4F60\u7684\u652F\u6301\uFF01"</span>);</span><br><span class="line"><span class="built_in">window</span>.location.href=<span class="string">"http://www.baidu.com"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>页面可能会被重定向到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yyets.com</span><br><span class="line">rrys.tv</span><br><span class="line">rrys123.com</span><br><span class="line">rrsub.com</span><br></pre></td></tr></table></figure>
+<p>这是件很奇怪的事情，不知道剩下的几个地址，是不是第三方刻意制造的地址。</p>
+<p>人人影视在国内站上提示到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">人人并没有启用其它域名，并且没有任何app，所有其它的地址都是仿冒的。</span><br></pre></td></tr></table></figure>
+<p>在贴吧，各大公开讨论的场所，官方都避免www.rrys123.com页面的问题，于是ping了一下该地址：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#27491;&#22312; Ping www.rrys123.com [116.251.210.221] &#20855;&#26377; 32 &#23383;&#33410;&#30340;&#25968;&#25454;:&#10;&#26469;&#33258; 116.251.210.221 &#30340;&#22238;&#22797;: &#23383;&#33410;=32 &#26102;&#38388;=64ms TTL=48&#10;&#26469;&#33258; 116.251.210.221 &#30340;&#22238;&#22797;: &#23383;&#33410;=32 &#26102;&#38388;=92ms TTL=48&#10;&#26469;&#33258; 116.251.210.221 &#30340;&#22238;&#22797;: &#23383;&#33410;=32 &#26102;&#38388;=64ms TTL=48&#10;&#26469;&#33258; 116.251.210.221 &#30340;&#22238;&#22797;: &#23383;&#33410;=32 &#26102;&#38388;=64ms TTL=48</span><br></pre></td></tr></table></figure>
+<p>用dig ping 出的结果中：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">116.251.208.81&#10;116.251.210.221&#10;116.251.210.225&#10;116.251.210.245&#10;116.251.210.44&#10;116.251.210.52&#10;116.251.210.58&#10;116.251.210.98&#10;116.251.211.103&#10;118.130.42.252&#10;210.92.18.2&#10;27.221.43.48&#10;27.255.82.19</span><br></pre></td></tr></table></figure>
+<p>包括116.251.210.221，捏了一把汗。</p>
+<p>同时，人人影视贴吧有关 rrys123.com 帖子也被及时清理，可见此地址为人人影视的最新地址。</p>
+<p><img src="http://99diary.com/assets/img/2014113001.jpg" alt="yyets-strange-redirect-js"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/11/22/2014-11-22-yyets-die/" itemprop="url">
+                美剧滑铁卢
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-11-22T23:34:00+08:00" content="2014-11-22">
+            2014-11-22
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/乱记/" itemprop="url" rel="index">
+                  <span itemprop="name">乱记</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/11/22/2014-11-22-yyets-die/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/22/2014-11-22-yyets-die/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>继人人影视之后，射手网成功被广电咔嚓，突然间感到整个世界都不好了，我那些一直在追的美剧啊…</p>
+<p>Simplecd只有去年爬的数据，今年实在懒得动了；人人影视代码早在去年写好，也难得爬了。</p>
+<p>没有美剧，以后怎么生活呀。</p>
+<p>据有童鞋发布消息：“人人影視服務器被封，貼吧消息：昨天人人影视被查封了5台服务器，直接是广电执法部门去查封，人人影视管理团队成员在加拿大无法回来处理，所以服务器直接被扣了。 据说是调查未经授权的影视翻译，意思就是直接要打击字幕组，没有引进的片子不允许翻译中文。还会继续查封其他字幕组和海外影视资源站”。</p>
+<p><img src="http://99diary.com/assets/img/2014112204.jpg" alt="yyets-die"></p>
+<p><img src="http://99diary.com/assets/img/2014112205.jpg" alt="yyets-die"></p>
+<p>附上两张图纪念一下，</p>
+<p>人人影视</p>
+<p><img src="http://99diary.com/assets/img/2014112201.png" alt="yyets-die"></p>
+<p>射手网</p>
+<p><img src="http://99diary.com/assets/img/2014112202.png" alt="yyets-die"></p>
+<p>目前人人影视用国外IP访问正常。</p>
+<p><img src="http://99diary.com/assets/img/2014112203.png" alt="yyets-die"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="url">
+                原来路由设置这么好玩
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-11-20T16:48:00+08:00" content="2014-11-20">
+            2014-11-20
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/技术/" itemprop="url" rel="index">
+                  <span itemprop="name">技术</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2014/11/20/2014-11-20-route-in-net-mvc/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/20/2014-11-20-route-in-net-mvc/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>之前用.NET MVC，唯一爽的就是自己写方法和视图，自由角度比较大，而且部署之后在服务器上的虚拟路径甚至可以动态决定。好处：单看网站，无法找出网站的目录情况；坏处：谷歌爬虫收录起来就惨了。</p>
+<p>最近要做Outh2服务端，突然发现，路由原来能够直接更改网站部署后的虚拟路径格式，这样，Api版本控制起来就爽了。</p>
+<p>在Global.asax添加路由控制：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>检查名字的 API的访问路径就为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/user/checkname</span><br></pre></td></tr></table></figure>
+<p>更新到第二个版本的时候，只需要将路由更改了：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void RegisterRoutes(RouteCollection routes)&#10;&#123;&#10;    routes.IgnoreRoute(&#34;&#123;resource&#125;.axd/&#123;*pathInfo&#125;&#34;);&#10;&#10;    routes.MapRoute(&#10;        &#34;Default&#34;, // &#36335;&#30001;&#21517;&#31216;&#10;        &#34;v2/&#123;controller&#125;/&#123;action&#125;/&#123;id&#125;&#34;, // &#24102;&#26377;&#21442;&#25968;&#30340; URL&#10;        new &#123; controller = &#34;Home&#34;, action = &#34;Index&#34;, id = UrlParameter.Optional &#125; // &#21442;&#25968;&#40664;&#35748;&#20540;&#10;    );&#10;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>API路径就变成了：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://xxx.com/v2/user/checkname</span><br></pre></td></tr></table></figure>
+<p>对于并存多个版本的API太爽了。</p>
+<p><img src="http://99diary.com/assets/img/2014112001.jpg" alt="route-in-net-mvc"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2014/11/20/2015-08-04-hello-world/" itemprop="url">
                 新的博客
               </a>
@@ -322,720 +707,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/30/2014-10-30-electric-light-break/" itemprop="url">
-                灯泡坏了
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-30T21:21:00+08:00" content="2014-10-30">
-            2014-10-30
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/10/30/2014-10-30-electric-light-break/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/30/2014-10-30-electric-light-break/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>最近几天一直小雨，今天也不例外，匆忙回来，打开房门，饭卡找不到了，于是打开灯找，“砰”一声，节能灯冒烟了…</p>
-<p>汗，还以为会爆炸…小时候遇到过电灯泡在打开的一瞬间爆炸的情景。</p>
-<p>只好出去买灯泡，找了半天，旁边的小超市都没有买节能灯的，大都市买个灯也不太好买。最终在华联的角落里找到了这家伙，</p>
-<p>给它留个靓照：</p>
-<p><img src="http://99diary.com/assets/img/2014103001.jpg" alt="electric-light-break"></p>
-<p>房东的节能灯，铭牌是“上海亮剑”牌…杂牌…</p>
-<p><img src="http://99diary.com/assets/img/2014103002.jpg" alt="electric-light-break"></p>
-<p>留个照片，证明我起码会上灯泡…(汗)。</p>
-<p><img src="http://99diary.com/assets/img/2014103003.jpg" alt="electric-light-break"></p>
-<p>新家伙格外的亮…</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/22/2014-10-22-ku-billity/" itemprop="url">
-                苦逼
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-22T22:17:00+08:00" content="2014-10-22">
-            2014-10-22
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/10/22/2014-10-22-ku-billity/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/22/2014-10-22-ku-billity/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>这段时间苦逼的码农生活，每天都要加班，今天算是下班最早的时候…小怪打得有点累了。</p>
-<p>而且经常性的要面对老爸老妈的心灵鸡汤和严刑心灵拷打，两个字，媳妇…这是要逼婚的节奏啊…崩溃…</p>
-<p>反代貌似停了，博客挂了…然后，然后就是又得折腾了…真是懒得动了…</p>
-<p>设置到GAE的DNS，我靠，写个博客还得fq了，蛋碎。</p>
-<p>一如既往得上两张靓照：</p>
-<p><img src="http://99diary.com/assets/img/2014102201.jpg" alt="ku-billity"></p>
-<p><img src="http://99diary.com/assets/img/2014102202.jpg" alt="ku-billity"></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/15/2014-10-15-they-are-coming/" itemprop="url">
-                They are coming!
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-15T23:06:00+08:00" content="2014-10-15">
-            2014-10-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/10/15/2014-10-15-they-are-coming/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/15/2014-10-15-they-are-coming/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>最近每次下班，基本都能赶上八点半的地铁，突然在某个时刻，想念床了…</p>
-<p>中指昨天开始巨疼，貌似是长期使用一指禅敲代码，小孩纸只能打小怪…可悲的孩纸。</p>
-<p>GFW重启了，预计一个半小时，折腾无碍…</p>
-<p>然后，总算等到了Walk dead 的回归，粉丝表示，要是让弩哥挂掉了，我们都是要拿柴火点起来烧了剧组的，我该给今天的日志其一个E文名字：</p>
-<p>They are coming!</p>
-<p>上两张靓照：</p>
-<p><img src="http://99diary.com/assets/img/2014101501.jpg" alt="they-are-coming"></p>
-<p><img src="http://99diary.com/assets/img/2014101502.jpg" alt="they-are-coming"></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/09/2014-10-09-touch-heard/" itemprop="url">
-                感动
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-09T23:45:00+08:00" content="2014-10-09">
-            2014-10-09
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/10/09/2014-10-09-touch-heard/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/09/2014-10-09-touch-heard/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>看第二集，然后又一口气看了第三集…略困…感动的电视剧…</p>
-<p>再也不想看这种感动的片子了…</p>
-<p>要不，看完吧…</p>
-<p><img src="http://99diary.com/assets/img/2014100901.JPG" alt="touch-heard"></p>
-<p><img src="http://99diary.com/assets/img/2014100902.JPG" alt="touch-heard"></p>
-<p>还有个要说的事，上次一发工资，又续费了一下域名..Oh，又长了一年…</p>
-<p>还有个很糟糕的事情，没被妹纸看上，然后就开始被老爸老妈逼婚了…这又是要被相亲的节奏，诶，妹纸害人一生…</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/04/2014-10-04-heavy-heard/" itemprop="url">
-                心塞
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-04T17:27:00+08:00" content="2014-10-04">
-            2014-10-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/10/04/2014-10-04-heavy-heard/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/10/04/2014-10-04-heavy-heard/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>心塞，自讨没趣…</p>
-<p><img src="http://99diary.com/assets/img/2014100401.JPG" alt="heavy-heard"></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/09/28/2014-09-28-been-moved/" itemprop="url">
-                泪奔
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-09-28T23:02:00+08:00" content="2014-09-28">
-            2014-09-28
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/09/28/2014-09-28-been-moved/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/28/2014-09-28-been-moved/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>好久没有看爱情片了，今天看了一个，才看第一集，已经泪奔了…感动…</p>
-<p>在这个物欲横流的年代，一点点的诱惑就能让一段感情坠落。某一刻听到关于某个童鞋分手的消息，明明以前还能被很多人羡慕，时间真是一个催人老的东西。不知不觉总觉得缺少什么，额，原来是缺少真实。</p>
-<p>明明一段小小的电影，也能让人感动的“泪流满面”，也许生活中缺少太多真正让人感动的东西。就像以前写的那样，人人总是怀揣着自己的情愫来来往往，所以，你自己的，谁在乎呢？Who care?</p>
-<p>不过，总会有一天，每个人都必须为自己的过去所做的一切付出代价，哪怕堵上未来。</p>
-<p>感谢过去我所经过的，感谢过去那些种种不顺利的感情，把我以前的爱还给了我，所以，以后，还可以从头开始。起码，还可以从头开始。来慰藉电视剧里面那些小小感情，虽然有些可望而不可及，但好歹无法比拟。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">After all,tomorrow is another day!</span><br></pre></td></tr></table></figure>
-<p><img src="http://99diary.com/assets/img/2014092801.JPG" alt="been-moved"></p>
-<p>加油！</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/09/23/2014-09-25-old-er/" itemprop="url">
-                老了
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-09-23T23:15:00+08:00" content="2014-09-23">
-            2014-09-23
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/09/23/2014-09-25-old-er/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/23/2014-09-25-old-er/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>昨天和前天稍微加了点班，夜晚又晚睡了会儿，结果今天就扛不住了，大概是老了吧？</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/09/23/2014-09-23-one-comment/" itemprop="url">
-                批评
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-09-23T22:46:00+08:00" content="2014-09-23">
-            2014-09-23
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/乱记/" itemprop="url" rel="index">
-                  <span itemprop="name">乱记</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2014/09/23/2014-09-23-one-comment/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/23/2014-09-23-one-comment/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>接受了大家的批评教育，服从领导，要搞好沟通方式。</p>
-<p>复读机般默念了一百遍…</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
  </div>
