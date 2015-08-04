@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Sql," />
 
 
 
@@ -39,19 +39,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="全量备份数据库的两个文件的时候，突然发现Log文件一直在复制到720M的时候立即就报磁盘错误，以为是系统问题，遂切换到其它系统，甚至PE，居然依然这个错误，猜测Log可能被损坏。这是一个很伤感的故事，数据库存了不少重要的资料。
+1.生成数据脚本文件，发现单个文件居然1G多，拆分成单表sql脚本文件，依然比较大，MSSql Manage直接报内存不够，看来那么多数据，总不能一个个恢复吧。
+2.尝试网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://99diary.com/2015/08/04/hello-world/index.html">
+<meta property="og:title" content="MSSQL无日志处理的一种方式">
+<meta property="og:url" content="http://99diary.com/2015/04/19/2015-04-19-restore-mssql-without-log/index.html">
 <meta property="og:site_name" content="久久日记本">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-08-04T07:36:51.905Z">
+<meta property="og:description" content="全量备份数据库的两个文件的时候，突然发现Log文件一直在复制到720M的时候立即就报磁盘错误，以为是系统问题，遂切换到其它系统，甚至PE，居然依然这个错误，猜测Log可能被损坏。这是一个很伤感的故事，数据库存了不少重要的资料。
+1.生成数据脚本文件，发现单个文件居然1G多，拆分成单表sql脚本文件，依然比较大，MSSql Manage直接报内存不够，看来那么多数据，总不能一个个恢复吧。
+2.尝试网">
+<meta property="og:updated_time" content="2015-04-22T15:16:34.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="MSSQL无日志处理的一种方式">
+<meta name="twitter:description" content="全量备份数据库的两个文件的时候，突然发现Log文件一直在复制到720M的时候立即就报磁盘错误，以为是系统问题，遂切换到其它系统，甚至PE，居然依然这个错误，猜测Log可能被损坏。这是一个很伤感的故事，数据库存了不少重要的资料。
+1.生成数据脚本文件，发现单个文件居然1G多，拆分成单表sql脚本文件，依然比较大，MSSql Manage直接报内存不够，看来那么多数据，总不能一个个恢复吧。
+2.尝试网">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +64,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | 久久日记本 </title>
+  <title> MSSQL无日志处理的一种方式 | 久久日记本 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -167,7 +170,7 @@ Quick">
           
           
             
-              Hello World
+              MSSQL无日志处理的一种方式
             
           
         </h1>
@@ -176,19 +179,34 @@ Quick">
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-08-04T15:36:51+08:00" content="2015-08-04">
-            2015-08-04
+          <time itemprop="dateCreated" datetime="2015-04-19T12:13:00+08:00" content="2015-04-19">
+            2015-04-19
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分類於
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/技术/" itemprop="url" rel="index">
+                  <span itemprop="name">技术</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/04/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/04/hello-world/" itemprop="commentsCount"></span>
+              <a href="/2015/04/19/2015-04-19-restore-mssql-without-log/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/19/2015-04-19-restore-mssql-without-log/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -202,31 +220,40 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>全量备份数据库的两个文件的时候，突然发现Log文件一直在复制到720M的时候立即就报磁盘错误，以为是系统问题，遂切换到其它系统，甚至PE，居然依然这个错误，猜测Log可能被损坏。<br>这是一个很伤感的故事，数据库存了不少重要的资料。</p>
+<p>1.生成数据脚本文件，发现单个文件居然1G多，拆分成单表sql脚本文件，依然比较大，MSSql Manage直接报内存不够，看来那么多数据，总不能一个个恢复吧。</p>
+<p>2.尝试网站查找解决方案，“无日志文件恢复MSSQL数据”，发现千篇一律的一个文章：</p>
+<p>譬如这篇：<a href="http://blog.csdn.net/xiulamimi/article/details/8217055" target="_blank" rel="external">传送门</a></p>
+<p>作者提供的方式，无非是这几行代码解决：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> emergency</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> single_user</span><br><span class="line">dbcc checkdb(<span class="string">'dbName'</span>,REPAIR_ALLOW_DATA_LOSS)</span><br><span class="line">dbcc checkdb(<span class="string">'dbName'</span>,REPAIR_REBUILD)</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> dbName <span class="keyword">set</span> multi_user</span></span><br></pre></td></tr></table></figure>
+<p>尝试一番，确实可以打开数据库操作了，但是发现分离数据库再次附加，就会报同样的错误，治标不治本。<br>没办法，只好搜索“Attach mdf file without ldf file in MSSQL”，发现此文章：<a href="http://blog.sqlauthority.com/2010/04/26/sql-server-attach-mdf-file-without-ldf-file-in-database/" target="_blank" rel="external">传送门</a></p>
+<p>一老外给出了方案，</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">USE</span> [<span class="keyword">master</span>]</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="comment">-- Method 1: I use this method</span></span><br><span class="line">EXEC sp_attach_single_file_db @dbname=<span class="string">'TestDb'</span>,</span><br><span class="line">@physname=<span class="keyword">N</span><span class="string">'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\TestDb.mdf'</span></span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="comment">-- Method 2:</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> TestDb <span class="keyword">ON</span></span><br><span class="line">(FILENAME = <span class="keyword">N</span><span class="string">'C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA\TestDb.mdf'</span>)</span><br><span class="line"><span class="keyword">FOR</span> ATTACH_REBUILD_LOG</span><br><span class="line"><span class="keyword">GO</span></span></span><br></pre></td></tr></table></figure>
+<p>Method2果然解决了问题。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Sql/" rel="tag">#Sql</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2015/08/04/hello-world/" rel="prev">Hello World</a>
+            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/19/2015-04-19-restore-mssql-without-log/" rel="next">MSSQL无日志处理的一种方式</a>
+              <a href="/2015/04/19/2015-04-19-dear-child/" rel="next">亲爱的小孩</a>
             
           </div>
         </div>
@@ -274,8 +301,8 @@ Quick">
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/04/hello-world/"
-                   data-title="Hello World" data-url="http://99diary.com/2015/08/04/hello-world/">
+              <div class="ds-thread" data-thread-key="2015/04/19/2015-04-19-restore-mssql-without-log/"
+                   data-title="MSSQL无日志处理的一种方式" data-url="http://99diary.com/2015/04/19/2015-04-19-restore-mssql-without-log/">
               </div>
             
           </div>
@@ -379,7 +406,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目錄</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
