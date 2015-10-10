@@ -7,7 +7,7 @@ categories: 技术
 tags: React-Native
 ---
 
-发布不久，尝试了一下，发现坑不少，姑且记录一下向导：
+React-Native Android 发布不久，尝试了一下，发现坑不少，姑且记录一下向导：
 
 
 
