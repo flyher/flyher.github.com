@@ -188,3 +188,23 @@ BUILD SUCCESSFUL
 这个问题已经被提到react-native的[issue](https://github.com/facebook/react-native/issues/2787#issuecomment-147048240)等待修正。
 
 
+update 2015-10-10:
+
+关于红屏错误界面的[解决方法](http://stackoverflow.com/questions/32572399/react-native-android-failed-to-load-js-bundle)：
+
+=======
+
+To bundle JS file into your apk while having your server running (react-native start) download bundle into assets directory of your app:
+
+curl "http://localhost:8081/index.android.bundle?platform=android" -o "android/app/src/main/assets/index.android.bundle"
+
+With the next release (0.12) we'll fix react-native bundle command to work with android projects as expected.
+
+=======
+
+如果没有assets，需要新建一个。
+
+附上几个截图：
+![the-bug-of-react-native-for-android](../assets/img/2015101001.png)
+![the-bug-of-react-native-for-android](../assets/img/2015101002.png)
+![the-bug-of-react-native-for-android](../assets/img/2015101003.png)
