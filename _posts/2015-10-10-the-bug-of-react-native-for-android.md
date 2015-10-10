@@ -42,11 +42,11 @@ react-native init AwesomeProject
 这里会下载项目和一些插件，需要耐心等待。
 
 
-6.切换到node_modules\react-native\packager\ 目录下，执行:
+6.切换到react-native-cli\AwesomeProject\node_modules\react-native\packager\ 目录下，执行:
 
 ```
 node packager.js
-//或者react-native start
+//或者在 react-native-cli\AwesomeProject 目录下执行 react-native start
 ```
 
 发现报错，这个[gist](https://gist.github.com/mqli/e1e6576e9838d885a43a)可以帮你解决这些问题，如果你无法打开，下面是原文转载:
