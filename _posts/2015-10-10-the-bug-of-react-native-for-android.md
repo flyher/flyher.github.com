@@ -206,5 +206,9 @@ With the next release (0.12) we'll fix react-native bundle command to work with 
 
 附上几个截图：
 ![the-bug-of-react-native-for-android](../assets/img/2015101001.png)
+
+
 ![the-bug-of-react-native-for-android](../assets/img/2015101002.png)
+
+
 ![the-bug-of-react-native-for-android](../assets/img/2015101003.png)
