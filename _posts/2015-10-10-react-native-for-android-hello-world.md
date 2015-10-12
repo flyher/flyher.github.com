@@ -1,7 +1,7 @@
 ---
 date: 2015-10-10 16:06:00+00:00
 layout: post
-title: React-Native for android Lesson1:Hello World
+title: React-Native for android:Hello World
 thread: 35
 categories: 技术
 tags: React-Native
