@@ -62,8 +62,11 @@
         color: white;
         background: silver;
     }
-    nav span:hover {
-        background-color:silver;
+    nav a:hover {
+        background-color: silver;
+        text-decoration: none;
+        color: #f9f9f9;
+        -webkit-transition: color .2s linear;
     }
 }
 @media screen and (max-width:750px) {
