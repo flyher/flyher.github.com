@@ -22,11 +22,13 @@
         margin-bottom: 20px;
     }
     nav span{
-        width:90px;
+        width:120px;
         height:40px;
         line-height:30px;
         float:left;
         margin-right:10px;
+        font-size: 20pt;
+        font-weight: bold;
     }
 
     .listing {
@@ -40,6 +42,13 @@
         max-width:100%;
         margin:30px auto auto auto;
     }
+    footer {
+        width:100%;
+        text-align:center;
+    }
+        footer p {
+            text-align:left;
+        }
 }
 @media screen and (max-width:750px) {
 
