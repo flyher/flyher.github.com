@@ -29,6 +29,10 @@
         margin-right:10px;
     }
 
+    .listing {
+        width:100%;
+    }
+
     #container {
         max-width:100%;
     }
