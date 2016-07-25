@@ -1,12 +1,15 @@
+<div>
+  你来到了没有博客的荒原,然而你可以使用本域邮箱.
+  欢迎申请99diary邮箱收发邮件~~~
+</div>
+
+<div style="display:none">
 ---
 title: 首页
 layout: page
 ---
 
-<div>
-  你来到了没有博客的荒原,然而你可以使用本域邮箱.
-  欢迎申请99diary邮箱收发邮件~~~
-</div>
+
 
 <ul class="listing" style="display:none">
 {% for post in paginator.posts %}
@@ -57,4 +60,6 @@ layout: page
     <span class="next disabled" >后页&gt;</span>
   {% endif %}
   (共{{ paginator.total_posts }}篇)
+</div>
+
 </div>
