@@ -3,7 +3,12 @@ title: 首页
 layout: page
 ---
 
-<ul class="listing">
+<div>
+  你来到了没有博客的荒原,然而你可以使用本域邮箱.
+  欢迎申请99diary邮箱收发邮件~~~
+</div>
+
+<ul class="listing" style="display:none">
 {% for post in paginator.posts %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
