@@ -24,7 +24,12 @@ loading...
   ga('send', 'pageview');
   setTimeout(function(){
     var referrer=document.referrer; 
-    window.location="https://blog.99diary.com?referrer="+referrer;
+    if(referrer){
+      window.location="https://blog.99diary.com?referrer="+referrer;
+    }
+    else{
+      window.location="https://blog.99diary.com?referrer=https://www.99diary.com";
+    }
   },2000);
 </script>
 </html>
