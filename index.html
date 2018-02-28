@@ -32,9 +32,9 @@
         border-radius: 100%;
         height: 50px;
         width: 50px;
-        -webkit-animation: rot .5s infinite linear;
-        -moz-animation: rot .5s infinite linear;
-        animation: rot .5s infinite linear;
+        -webkit-animation: rot .8s infinite linear;
+        -moz-animation: rot .8s infinite linear;
+        animation: rot .8s infinite linear;
     }
     @-webkit-keyframes type {
       from {
@@ -61,25 +61,11 @@
     }
 
     @keyframes rot {
-      0% {
-        transform: rotate(0deg);
-        border-top: 3px solid #F38181;
+      from {
+        -webkit-transform: rotate(0deg);
       }
-      25% {
-        transform: rotate(90deg);
-        border-top: 3px solid rgb(243, 129, 123);
-      }
-      50% {
-        transform: rotate(180deg);
-        border-top: 3px solid rgb(254, 179, 175);
-      }
-      75% {
-        transform: rotate(270deg);
-        border-top: 3px solid rgb(245, 146, 141);
-      }
-      100% {
-        transform: rotate(360deg);
-        border-top: 3px solid #F38181;
+      to {
+        -webkit-transform: rotate(359deg);
       }
     }
 
