@@ -1,18 +1,86 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="@flyher">
   <meta name="description" content="一个关于我的生活和技术的博客导航站">
   <meta name="keywords" content="文章,个人日记,十年旧梦,技术,AngularJS,React,Vue,C#">
-  <title>99diary</title>
-</head>
-<div>
-loading...
-</div>
+  <title>久久日记本</title>
+  <style type='text/css'>
+    .kp-panel{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        margin-left: -50%;
+        margin-top:-100px;
+        text-align: center;
+    }
+    .loading{
+        width: 50px; 
+        height: 50px; 
+        margin: 0 auto;
+    }
+  	.kp-loading{
+        z-index: 999;
+        margin: 0;
+        border-bottom: 3px solid rgb(245, 191, 187);
+        border-left: 3px solid rgb(245, 191, 187);
+        border-right: 3px solid rgb(245, 191, 187);
+        border-top: 3px solid rgb(255, 67, 56);
+        border-radius: 100%;
+        height: 50px;
+        width: 50px;
+        -webkit-animation: rot .5s infinite linear;
+        -moz-animation: rot .5s infinite linear;
+        animation: rot .5s infinite linear;
+    }
+    @-webkit-keyframes type {
+      from {
+        width: 0
+      }
+    }
 
+    @-webkit-keyframes rot {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(359deg);
+      }
+    }
+
+    @-moz-keyframes rot {
+      from {
+        -moz-transform: rotate(0deg);
+      }
+      to {
+        -moz-transform: rotate(359deg);
+      }
+    }
+
+    @keyframes rot {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+
+    .h3{
+        margin-top: 20px; 
+        font-weight: bold
+    }
+  </style>
+</head>
+<div class="kp-panel">
+    <div class="loading">
+      <div class="kp-loading"></div>
+    </div>
+    <h3 class="h3">One moment...</h3>
+</div>
 </body>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
