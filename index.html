@@ -61,11 +61,25 @@
     }
 
     @keyframes rot {
-      from {
+      0% {
         transform: rotate(0deg);
+        border-top: 3px solid #F38181;
       }
-      to {
-        transform: rotate(359deg);
+      25% {
+        transform: rotate(90deg);
+        border-top: 3px solid rgb(243, 129, 123);
+      }
+      50% {
+        transform: rotate(180deg);
+        border-top: 3px solid rgb(254, 179, 175);
+      }
+      75% {
+        transform: rotate(270deg);
+        border-top: 3px solid rgb(245, 146, 141);
+      }
+      100% {
+        transform: rotate(360deg);
+        border-top: 3px solid #F38181;
       }
     }
 
